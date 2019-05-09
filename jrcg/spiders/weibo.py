@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from jrcg.items import WeiboItem
+from jrcg.items import JrcgItem
 import time
 
 class WeiboSpider(scrapy.Spider):
@@ -12,7 +12,7 @@ class WeiboSpider(scrapy.Spider):
         tr_list = response.xpath("//*[@id='pl_top_realtimehot']/table/tbody/tr")
         now = int(time.time())
         for index, tr in enumerate(tr_list):
-            weibo = WeiboItem()
+            weibo = JrcgItem()
             if index == 0:
                 weibo['rank'] = 0
             else:
@@ -22,4 +22,5 @@ class WeiboSpider(scrapy.Spider):
             weibo['count'] = int(tr.xpath(".//td[position()=2]/span/text()").extract_first(default = 0))
             weibo['state'] = tr.xpath(".//td[position()=3]/i/text()").extract_first(default = '')
             weibo['insert_time'] = now
+            weibo['name'] = 'weibo'
             yield weibo
