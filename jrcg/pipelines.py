@@ -42,6 +42,6 @@ class RedisPipeline(object):
         return cls(host=crawler.settings.get('REDIS_HOST'), port=crawler.settings.get('REDIS_PORT'))
 
     def process_item(self, item, spider):
-        arow = json.dumps(dict(item))
+        arow = json.dumps(dict(item), ensure_ascii=False)
         self.rds.zadd(item['name'], {arow: item['rank']})
         return item
