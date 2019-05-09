@@ -69,7 +69,7 @@ ROBOTSTXT_OBEY = True
 #    'jrcg.pipelines.JrcgPipeline': 300,
 #}
 ITEM_PIPELINES = {
-   'jrcg.pipelines.WeiboPipeline': 300,
+   'jrcg.pipelines.RedisPipeline': 300,
 }
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -91,3 +91,6 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+REDIS_HOST = '127.0.0.1'
+REDIS_PORT = 6379

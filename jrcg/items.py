@@ -8,10 +8,18 @@
 import scrapy
 
 
-class WeiboItem(scrapy.Item):
+class JrcgItem(scrapy.Item):
+    # 排名
     rank = scrapy.Field()
+    # 标题
     title = scrapy.Field()
+    # 连接地址
     link = scrapy.Field()
+    # 观注人数
     count = scrapy.Field()
+    # 状态 
     state = scrapy.Field()
+    # 插入时间
     insert_time = scrapy.Field()
+    # 来自哪个网站
+    name = scrapy.Field()
