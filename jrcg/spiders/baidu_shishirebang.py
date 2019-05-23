@@ -19,5 +19,5 @@ class BaiduShishirebangSpider(scrapy.Spider):
             jrcg['title'] = tr.xpath('.//td[@class="keyword"]/a/text()').extract_first()
             jrcg['link'] = tr.xpath('.//td[@class="keyword"]/a/@href').extract_first()
             jrcg['count'] = tr.xpath('.//td[@class="last"]/span/text()').extract_first()
-            jrcg['name'] = 'baidushishirebang'
+            jrcg['name'] = 'baidu_shishirebang'
             yield jrcg
