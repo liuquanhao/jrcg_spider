@@ -17,9 +17,7 @@ class JrcgItem(scrapy.Item):
     link = scrapy.Field()
     # 观注人数
     count = scrapy.Field()
-    # 状态 
+    # 状态
     state = scrapy.Field()
-    # 插入时间
-    insert_time = scrapy.Field()
     # 来自哪个网站
     name = scrapy.Field()
