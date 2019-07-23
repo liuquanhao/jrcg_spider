@@ -6,7 +6,6 @@ from jrcg.items import JrcgItem
 class BaiduShishirebangSpider(scrapy.Spider):
     name = 'baidu_shishirebang'
     allowed_domains = ['top.baidu.com']
-    #start_urls = ['http://top.baidu.com/buzz?b=1&fr=topbuzz_b341_c513']
 
     def start_requests(self):
         request = scrapy.Request(url="http://top.baidu.com/buzz?b=1&fr=topbuzz_b341_c513")
