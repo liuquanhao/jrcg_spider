@@ -35,7 +35,6 @@ class RedisPipeline(object):
     def __init__(self, host, port):
         pool = redis.ConnectionPool(host=host, port=port)
         self.rds = redis.Redis(connection_pool=pool)
-        self.rds.flushall()
 
     @classmethod
     def from_crawler(cls, crawler):
@@ -43,5 +42,6 @@ class RedisPipeline(object):
 
     def process_item(self, item, spider):
         arow = json.dumps(dict(item), ensure_ascii=False)
+        self.rds.zremrangebyrank(item['name'], item['rank'], item['rank'])
         self.rds.zadd(item['name'], {arow: item['rank']})
         return item
