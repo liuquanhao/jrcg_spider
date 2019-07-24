@@ -7,6 +7,11 @@ class A36krSpider(scrapy.Spider):
     allowed_domains = ['36kr.com']
     start_urls = ['https://36kr.com/']
 
+    def start_requests(self):
+        request = scrapy.Request(url='https://36kr.com/')
+        request.meta['proxy'] = 'http://127.0.0.1:8888'
+        yield request
+
     def parse(self, response):
         div_list = response.xpath('.//div[@class="hotlist-main"]/div')
         for index, div in enumerate(div_list):
