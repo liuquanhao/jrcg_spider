@@ -42,6 +42,6 @@ class RedisPipeline(object):
 
     def process_item(self, item, spider):
         arow = json.dumps(dict(item), ensure_ascii=False)
-        self.rds.zremrangebyrank(item['name'], item['rank'], item['rank'])
+        self.rds.zremrangebyscore(item['name'], item['rank'], item['rank'])
         self.rds.zadd(item['name'], {arow: item['rank']})
         return item
